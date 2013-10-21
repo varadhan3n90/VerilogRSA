@@ -1,0 +1,41 @@
+ command line:
+   ./MMET_v_isim_beh.exe
+     -intstyle  ise
+     -ipchost  localhost
+     -ipcport  59844
+
+Mon Oct 21 15:40:28 2013
+
+Total Line Count : 176
+
+ Elaboration time : 0 sec.
+
+ Estimate current memory usage : 152.982 Meg. 
+
+ Total Signals          : 26
+ Total Nets             : 271
+ Total Signal Drivers   : 16
+ Total Blocks           : 4
+ Total Primitive Blocks : 2
+ Total Processes        : 21
+ Total Traceable Variables  : 58
+ Total Scalar Nets and Variables : 1421
+ntrace select -o on -n /MMET_v/R 
+ntrace select -o on -n /MMET_v/bits 
+ntrace select -o on -n /MMET_v/clk 
+ntrace select -o on -n /MMET_v/C 
+ntrace select -o on -n /MMET_v/E 
+ntrace select -o on -n /MMET_v/M 
+ntrace select -o on -n /MMET_v/N 
+ntrace select -o on -n /MMET_v/start1 
+ntrace start 
+isimrun 1000 ns 
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+
+ Simulation time 0.0312 sec.
+
+ Estimate current memory usage : 162.349 Meg. 
+
+Mon Oct 21 15:40:36 2013
+

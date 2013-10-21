@@ -1,0 +1,4 @@
+verilog isim_temp "MM.v"
+verilog isim_temp "MME.v"
+verilog isim_temp "MMET.v"
+verilog isim_temp "C:/Xilinx92i/verilog/src/glbl.v"

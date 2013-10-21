@@ -1,0 +1,682 @@
+Release 9.2i - xst J.36
+Copyright (c) 1995-2007 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to ./xst/projnav.tmp
+CPU : 0.00 / 0.11 s | Elapsed : 0.00 / 0.00 s
+ 
+--> Parameter xsthdpdir set to ./xst
+CPU : 0.00 / 0.11 s | Elapsed : 0.00 / 0.00 s
+ 
+--> Reading design: MME.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+     9.1) Device utilization summary
+     9.2) Partition Resource Summary
+     9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "MME.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "MME"
+Output Format                      : NGC
+Target Device                      : xc3s500e-4-ft256
+
+---- Source Options
+Top Module Name                    : MME
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : lut
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : YES
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : YES
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Library Search Order               : MME.lso
+Keep Hierarchy                     : NO
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "MM.v" in library work
+Compiling verilog file "MME.v" in library work
+Module <MM> compiled
+Module <MME> compiled
+No errors in compilation
+Analysis of file <"MME.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <MME> in library <work> with parameters.
+	bits = "00000000000000000000000000011111"
+	calc_mv = "00000000000000000000000000000001"
+	calc_r = "00000000000000000000000000000011"
+	comp_MM = "00000000000000000000000000000100"
+	dummy = "00000000000000000000000000000000"
+	evaluation = "00000000000000000000000000000101"
+	k = "00000000000000000000000000000101"
+	n = "00000000000000000000000000000101"
+	postasign = "00000000000000000000000000000110"
+	preasign = "00000000000000000000000000000010"
+	repeatState = "00000000000000000000000000000111"
+
+Analyzing hierarchy for module <MM> in library <work> with parameters.
+	bits = "00000000000000000000000000011111"
+	calc_c = "00000000000000000000000000000001"
+	comp_MM = "00000000000000000000000000000100"
+	n = "00000000000000000000000000000110"
+	outputS = "00000000000000000000000000000011"
+	reduce = "00000000000000000000000000000010"
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <MME>.
+	bits = 32'sb00000000000000000000000000011111
+	calc_mv = 32'sb00000000000000000000000000000001
+	calc_r = 32'sb00000000000000000000000000000011
+	comp_MM = 32'sb00000000000000000000000000000100
+	dummy = 32'sb00000000000000000000000000000000
+	evaluation = 32'sb00000000000000000000000000000101
+	k = 32'sb00000000000000000000000000000101
+	n = 32'sb00000000000000000000000000000101
+	postasign = 32'sb00000000000000000000000000000110
+	preasign = 32'sb00000000000000000000000000000010
+	repeatState = 32'sb00000000000000000000000000000111
+"MME.v" line 60: $display : started
+WARNING:Xst:916 - "MME.v" line 82: Delay is ignored for synthesis.
+WARNING:Xst:2323 - "MME.v" line 82: Parameter 2 is not constant in call of system task $display.
+WARNING:Xst:2323 - "MME.v" line 82: Parameter 3 is not constant in call of system task $display.
+"MME.v" line 82: $display : completed calc_mv with output: %d %d
+"MME.v" line 94: $display : in comp_mm going to preassign
+WARNING:Xst:2323 - "MME.v" line 98: Parameter 2 is not constant in call of system task $display.
+"MME.v" line 98: $display : current==1 and E[k-i-2] %d
+WARNING:Xst:2323 - "MME.v" line 111: Parameter 2 is not constant in call of system task $display.
+"MME.v" line 111: $display : completed MM: %d
+"MME.v" line 116: $display : Going to repeat state
+"MME.v" line 128: $display : Completedf
+WARNING:Xst:916 - "MME.v" line 133: Delay is ignored for synthesis.
+"MME.v" line 134: $display : preassign state
+WARNING:Xst:916 - "MME.v" line 140: Delay is ignored for synthesis.
+"MME.v" line 140: $display : calc_r state
+WARNING:Xst:916 - "MME.v" line 155: Delay is ignored for synthesis.
+WARNING:Xst:2323 - "MME.v" line 156: Parameter 2 is not constant in call of system task $display.
+"MME.v" line 156: $display : repeatSTate %d
+"MME.v" line 169: $display : postassign
+WARNING:Xst:916 - "MME.v" line 170: Delay is ignored for synthesis.
+"MME.v" line 178: $display : Completed
+WARNING:Xst:905 - "MME.v" line 67: The signals <M, C, stateO, y, current, E, counter, MV, R> are missing in the sensitivity list of always block.
+Module <MME> is correct for synthesis.
+ 
+Analyzing module <MM> in library <work>.
+	bits = 32'sb00000000000000000000000000011111
+	calc_c = 32'sb00000000000000000000000000000001
+	comp_MM = 32'sb00000000000000000000000000000100
+	n = 32'sb00000000000000000000000000000110
+	outputS = 32'sb00000000000000000000000000000011
+	reduce = 32'sb00000000000000000000000000000010
+WARNING:Xst:916 - "MM.v" line 62: Delay is ignored for synthesis.
+"MM.v" line 68: $display : calc_c
+WARNING:Xst:916 - "MM.v" line 73: Delay is ignored for synthesis.
+"MM.v" line 79: $display : reduce
+WARNING:Xst:916 - "MM.v" line 84: Delay is ignored for synthesis.
+"MM.v" line 84: $display : output
+WARNING:Xst:905 - "MM.v" line 57: The signals <a, b, p, c, N, c1> are missing in the sensitivity list of always block.
+Module <MM> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+INFO:Xst:2679 - Register <state> in unit <MME> has a constant value of 001 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <counter> in unit <MME> has a constant value of 00000000000000000000000000000001 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <start> in unit <MME> has a constant value of 1 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <reset> in unit <MME> has a constant value of 1 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <stateO1> in unit <MM> has a constant value of 000 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <stateO1> in unit <MM> has a constant value of 100 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <state> in unit <MM> has a constant value of 001 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <i> in unit <MM> has a constant value of 110 during circuit operation. The register is replaced by logic.
+
+Synthesizing Unit <MM>.
+    Related source file is "MM.v".
+WARNING:Xst:647 - Input <clk> is never used.
+WARNING:Xst:646 - Signal <result> is assigned but never used.
+WARNING:Xst:646 - Signal <c<31:6>> is assigned but never used.
+WARNING:Xst:646 - Signal <q> is assigned but never used.
+WARNING:Xst:646 - Signal <c0> is assigned but never used.
+WARNING:Xst:737 - Found 32-bit latch for signal <c>.
+WARNING:Xst:737 - Found 32-bit latch for signal <c1>.
+WARNING:Xst:737 - Found 32-bit latch for signal <y>.
+    Using one-hot encoding for signal <state>.
+WARNING:Xst:2734 - Property "use_dsp48" is not applicable for this technology.
+WARNING:Xst:2734 - Property "use_dsp48" is not applicable for this technology.
+WARNING:Xst:643 - "MM.v" line 63: The result of a 32x32-bit multiplication is partially used. Only the 32 least significant bits are used. If you are doing this on purpose, you may safely ignore this warning. Otherwise, make sure you are not losing information, leading to unexpected circuit behavior.
+WARNING:Xst:2734 - Property "use_dsp48" is not applicable for this technology.
+WARNING:Xst:2734 - Property "use_dsp48" is not applicable for this technology.
+WARNING:Xst:737 - Found 4-bit latch for signal <state>.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 32-bit latch for signal <p>.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+    Found 32-bit adder for signal <$add0000> created at line 75.
+    Found 32-bit adder for signal <$add0001> created at line 75.
+    Found 32-bit adder for signal <$add0002> created at line 75.
+    Found 32-bit adder for signal <$add0003> created at line 75.
+    Found 32-bit adder for signal <$add0004> created at line 75.
+    Found 32-bit adder for signal <$add0005> created at line 75.
+    Found 32x32-bit multiplier for signal <c$mult0001> created at line 63.
+    Found 64-bit adder for signal <p$add0000> created at line 76.
+    Found 64-bit adder for signal <p$add0001> created at line 76.
+    Found 64-bit adder for signal <p$add0002> created at line 76.
+    Found 64-bit adder for signal <p$add0003> created at line 76.
+    Found 64-bit adder for signal <p$add0004> created at line 76.
+    Found 64-bit adder for signal <p$add0005> created at line 76.
+    Found 64-bit adder for signal <p$addsub0000> created at line 76.
+    Found 64-bit adder for signal <p$addsub0001> created at line 76.
+    Found 64-bit adder for signal <p$addsub0002> created at line 76.
+    Found 64-bit adder for signal <p$addsub0003> created at line 76.
+    Found 64-bit adder for signal <p$addsub0004> created at line 76.
+    Found 64-bit adder for signal <p$addsub0005> created at line 76.
+    Found 32x32-bit multiplier for signal <p$mult0000> created at line 76.
+    Found 32x32-bit multiplier for signal <p$mult0001> created at line 76.
+    Found 32x32-bit multiplier for signal <p$mult0002> created at line 76.
+    Found 32x32-bit multiplier for signal <p$mult0003> created at line 76.
+    Found 32x32-bit multiplier for signal <p$mult0004> created at line 76.
+    Found 32x32-bit multiplier for signal <p$mult0005> created at line 76.
+    Summary:
+	inferred  19 Adder/Subtractor(s).
+	inferred   7 Multiplier(s).
+Unit <MM> synthesized.
+
+
+Synthesizing Unit <MME>.
+    Related source file is "MME.v".
+WARNING:Xst:647 - Input <E<31:4>> is never used.
+WARNING:Xst:737 - Found 32-bit latch for signal <counter>.
+WARNING:Xst:737 - Found 32-bit latch for signal <MV>.
+    Using one-hot encoding for signal <current>.
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <current> of Case statement line 0 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <current> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+WARNING:Xst:2734 - Property "use_dsp48" is not applicable for this technology.
+WARNING:Xst:737 - Found 3-bit latch for signal <state>.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 32-bit latch for signal <a>.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 32-bit latch for signal <b>.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 4-bit latch for signal <current>.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 32-bit latch for signal <R>.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 3-bit latch for signal <state$mux0000>.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   1 Multiplexer(s).
+Unit <MME> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Multipliers                                          : 7
+ 32x32-bit multiplier                                  : 7
+# Adders/Subtractors                                   : 20
+ 32-bit adder                                          : 8
+ 64-bit adder                                          : 12
+# Latches                                              : 13
+ 3-bit latch                                           : 2
+ 32-bit latch                                          : 9
+ 4-bit latch                                           : 2
+# Multiplexers                                         : 1
+ 1-bit 4-to-1 multiplexer                              : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Loading device for application Rf_Device from file '3s500e.nph' in environment C:\Xilinx92i.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <15>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <16>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <17>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <18>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <19>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <20>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <21>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <22>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <23>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <24>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <25>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <26>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <27>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <28>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <29>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <30>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <31>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <0>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <1>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <0>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <1>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <0>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <1>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <2>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <3>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <4>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <5>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <0>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <1>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <2>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <3>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <4>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <5>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <6>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <7>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <8>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <9>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <10>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <11>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <12>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <13>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <14>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <7>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <6>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <5>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <4>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <3>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <2>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <1>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <0>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <31>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <30>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <29>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <28>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <27>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <26>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <25>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <24>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <23>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <22>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <21>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <20>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <19>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <18>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <17>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <16>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <31>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <30>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <29>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <28>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <27>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <26>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <25>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <24>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <23>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <22>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <21>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <20>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <19>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <18>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <17>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <16>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <15>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <14>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <13>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <12>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <11>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <10>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <9>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <8>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <23>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <22>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <21>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <20>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <19>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <18>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <17>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <16>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <15>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <14>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <13>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <12>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <11>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <10>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <9>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <8>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <7>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <6>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <5>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <4>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <3>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <2>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <1>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <0>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <15>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <14>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <13>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <12>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <11>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <10>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <9>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <8>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <7>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <6>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <5>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <4>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <3>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <2>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <1>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <0>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <2>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <31>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <30>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <29>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <28>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <27>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <26>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <25>.
+WARNING:Xst:1710 - FF/Latch  <0> (without init value) has a constant value of 0 in block <24>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Multipliers                                          : 7
+ 2x32-bit multiplier                                   : 6
+ 32x32-bit multiplier                                  : 1
+# Adders/Subtractors                                   : 20
+ 1-bit adder                                           : 6
+ 32-bit adder                                          : 2
+ 33-bit adder                                          : 12
+# Latches                                              : 13
+ 3-bit latch                                           : 2
+ 32-bit latch                                          : 9
+ 4-bit latch                                           : 2
+# Multiplexers                                         : 1
+ 1-bit 4-to-1 multiplexer                              : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+ERROR:Xst:528 - Multi-source in Unit <MME> on signal <state<2>>
+Sources are: 
+   Output signal of LD instance <state/2/0>
+   Signal <state<2>> in Unit <MME> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MME> on signal <state<1>>
+Sources are: 
+   Output signal of LD instance <state/1/0>
+   Signal <state<1>> in Unit <MME> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MME> on signal <state<0>>
+Sources are: 
+   Output signal of LD instance <state/0/0>
+   Signal <state<0>> in Unit <MME> is assigned to VCC
+
+ERROR:Xst:528 - Multi-source in Unit <MME> on signal <counter<31>>
+Sources are: 
+   Output signal of LD instance <counter/31/0>
+   Signal <counter<31>> in Unit <MME> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MME> on signal <counter<30>>
+Sources are: 
+   Output signal of LD instance <counter/30/0>
+   Signal <counter<30>> in Unit <MME> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MME> on signal <counter<29>>
+Sources are: 
+   Output signal of LD instance <counter/29/0>
+   Signal <counter<29>> in Unit <MME> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MME> on signal <counter<28>>
+Sources are: 
+   Output signal of LD instance <counter/28/0>
+   Signal <counter<28>> in Unit <MME> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MME> on signal <counter<27>>
+Sources are: 
+   Output signal of LD instance <counter/27/0>
+   Signal <counter<27>> in Unit <MME> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MME> on signal <counter<26>>
+Sources are: 
+   Output signal of LD instance <counter/26/0>
+   Signal <counter<26>> in Unit <MME> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MME> on signal <counter<25>>
+Sources are: 
+   Output signal of LD instance <counter/25/0>
+   Signal <counter<25>> in Unit <MME> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MME> on signal <counter<24>>
+Sources are: 
+   Output signal of LD instance <counter/24/0>
+   Signal <counter<24>> in Unit <MME> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MME> on signal <counter<23>>
+Sources are: 
+   Output signal of LD instance <counter/23/0>
+   Signal <counter<23>> in Unit <MME> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MME> on signal <counter<22>>
+Sources are: 
+   Output signal of LD instance <counter/22/0>
+   Signal <counter<22>> in Unit <MME> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MME> on signal <counter<21>>
+Sources are: 
+   Output signal of LD instance <counter/21/0>
+   Signal <counter<21>> in Unit <MME> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MME> on signal <counter<20>>
+Sources are: 
+   Output signal of LD instance <counter/20/0>
+   Signal <counter<20>> in Unit <MME> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MME> on signal <counter<19>>
+Sources are: 
+   Output signal of LD instance <counter/19/0>
+   Signal <counter<19>> in Unit <MME> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MME> on signal <counter<18>>
+Sources are: 
+   Output signal of LD instance <counter/18/0>
+   Signal <counter<18>> in Unit <MME> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MME> on signal <counter<17>>
+Sources are: 
+   Output signal of LD instance <counter/17/0>
+   Signal <counter<17>> in Unit <MME> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MME> on signal <counter<16>>
+Sources are: 
+   Output signal of LD instance <counter/16/0>
+   Signal <counter<16>> in Unit <MME> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MME> on signal <counter<15>>
+Sources are: 
+   Output signal of LD instance <counter/15/0>
+   Signal <counter<15>> in Unit <MME> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MME> on signal <counter<14>>
+Sources are: 
+   Output signal of LD instance <counter/14/0>
+   Signal <counter<14>> in Unit <MME> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MME> on signal <counter<13>>
+Sources are: 
+   Output signal of LD instance <counter/13/0>
+   Signal <counter<13>> in Unit <MME> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MME> on signal <counter<12>>
+Sources are: 
+   Output signal of LD instance <counter/12/0>
+   Signal <counter<12>> in Unit <MME> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MME> on signal <counter<11>>
+Sources are: 
+   Output signal of LD instance <counter/11/0>
+   Signal <counter<11>> in Unit <MME> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MME> on signal <counter<10>>
+Sources are: 
+   Output signal of LD instance <counter/10/0>
+   Signal <counter<10>> in Unit <MME> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MME> on signal <counter<9>>
+Sources are: 
+   Output signal of LD instance <counter/9/0>
+   Signal <counter<9>> in Unit <MME> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MME> on signal <counter<8>>
+Sources are: 
+   Output signal of LD instance <counter/8/0>
+   Signal <counter<8>> in Unit <MME> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MME> on signal <counter<7>>
+Sources are: 
+   Output signal of LD instance <counter/7/0>
+   Signal <counter<7>> in Unit <MME> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MME> on signal <counter<6>>
+Sources are: 
+   Output signal of LD instance <counter/6/0>
+   Signal <counter<6>> in Unit <MME> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MME> on signal <counter<5>>
+Sources are: 
+   Output signal of LD instance <counter/5/0>
+   Signal <counter<5>> in Unit <MME> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MME> on signal <counter<4>>
+Sources are: 
+   Output signal of LD instance <counter/4/0>
+   Signal <counter<4>> in Unit <MME> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MME> on signal <counter<3>>
+Sources are: 
+   Output signal of LD instance <counter/3/0>
+   Signal <counter<3>> in Unit <MME> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MME> on signal <counter<2>>
+Sources are: 
+   Output signal of LD instance <counter/2/0>
+   Signal <counter<2>> in Unit <MME> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MME> on signal <counter<1>>
+Sources are: 
+   Output signal of LD instance <counter/1/0>
+   Signal <counter<1>> in Unit <MME> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MME> on signal <counter<0>>
+Sources are: 
+   Output signal of LD instance <counter/0/0>
+   Signal <counter<0>> in Unit <MME> is assigned to VCC
+
+ERROR:Xst:528 - Multi-source in Unit <MM> on signal <stateO<2>>
+Sources are: 
+   Signal <mm1/stateO<2>> in Unit <MM> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MM> on signal <stateO<1>>
+Sources are: 
+   Signal <mm1/stateO<1>> in Unit <MM> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MM> on signal <stateO<0>>
+Sources are: 
+   Signal <mm1/stateO<0>> in Unit <MM> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MM> on signal <state<2>>
+Sources are: 
+   Output signal of LD instance <mm1/state/2/0>
+   Signal <mm1/state<2>> in Unit <MM> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MM> on signal <state<1>>
+Sources are: 
+   Output signal of LD instance <mm1/state/1/0>
+   Signal <mm1/state<1>> in Unit <MM> is assigned to GND
+
+ERROR:Xst:528 - Multi-source in Unit <MM> on signal <state<0>>
+Sources are: 
+   Output signal of LD instance <mm1/state/0/0>
+   Signal <mm1/state<0>> in Unit <MM> is assigned to VCC
+CPU : 3.44 / 3.57 s | Elapsed : 3.00 / 3.00 s
+ 
+--> 
+
+Total memory usage is 186464 kilobytes
+
+Number of errors   :   41 (   0 filtered)
+Number of warnings :  179 (   0 filtered)
+Number of infos    :   17 (   0 filtered)
+
